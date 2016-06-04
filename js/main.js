@@ -27,6 +27,14 @@ var totalend = 0;
 var counterend = 0;
 var incorrectend = 0;
 var correctend = 0;
+var redb = 0;
+var greenb = 0;
+var blueb = 0;
+var totalPercentb = 0;
+var totalb = 0;
+var counterb = 0;
+var incorrectb = 0;
+var correctb = 0;
 
 function randomizeColor() {
 	red = Math.round(Math.random() * 255);
@@ -92,8 +100,8 @@ function pickColor() {
 
 	$("#round-score").html(correct + "%");
 	$("#total-score").html(totalPercent + "%");
-	$("#round-time").html(pad(savedMinutes,2)+":"+pad(savedSeconds,2)+":"+pad(savedDecaSeconds,2));
-	$("#total-time").html(pad(totalMinutes,2)+":"+pad(totalSeconds,2)+":"+pad(totalDecaSeconds,2));
+	$(".round-time").html(pad(savedMinutes,2)+":"+pad(savedSeconds,2)+":"+pad(savedDecaSeconds,2));
+	$(".total-time").html(pad(totalMinutes,2)+":"+pad(totalSeconds,2)+":"+pad(totalDecaSeconds,2));
 
 	var usrRedonce = $("#red-valonce").val();
 	var usrGreenonce = $("#green-valonce").val();
@@ -139,6 +147,39 @@ function pickColor() {
 	$(".green-col-usrend").html(usrGreenend);
 	$(".blue-col-usrend").html(usrBlueend);
 	
+	var usrRedb = $("#red-valb").val();
+	var usrGreenb = $("#green-valb").val();
+	var usrBlueb = $("#blue-valb").val();
+	
+	savedDecaSeconds = startDecaSeconds - decaseconds;
+	savedSeconds = startSeconds - seconds - ((savedDecaSeconds < 0) ? Math.ceil(Math.abs(savedDecaSeconds / 100)) : 0);
+	savedMinutes = startMinutes - minutes - ((savedSeconds < 0) ? Math.ceil(Math.abs(savedSeconds / 60)) : 0);
+	savedDecaSeconds = (savedDecaSeconds < 0) ? 100 + savedDecaSeconds : savedDecaSeconds;
+	savedSeconds = (savedSeconds < 0) ? 100 + savedSeconds : savedSeconds;
+
+	totalDecaSeconds += savedDecaSeconds;
+	totalSeconds += savedSeconds + Math.floor(totalDecaSeconds / 100);
+	totalDecaSeconds %= 100;
+	totalMinutes += totalMinutes + Math.floor(totalSeconds / 60);
+	totalSeconds %= 60;
+	console.log("Did time calculations");
+
+	incorrectb = 0;
+	incorrectb = ((((Math.abs(usrRedb - red))/255)*100) + (((Math.abs(usrGreenb - green))/255)*100) + (((Math.abs(usrBlueb - blue))/255)*100));
+	correctb = Math.round((300-incorrectb)/3);
+	totalb += correctb;
+	counterb++;
+	totalPercentb = Math.round(totalb/counterb);
+
+	$("#round-scoreb").html(correctb + "%");
+	$("#total-scoreb").html(totalPercentb + "%");
+	$(".red-col").html(red);
+	$(".green-col").html(green);
+	$(".blue-col").html(blue);
+	$(".red-col-usrb").html(usrRedb);
+	$(".green-col-usrb").html(usrGreenb);
+	$(".blue-col-usrb").html(usrBlueb);
+	
 	round++;
 
 	if(round >= totalRounds) {
@@ -176,6 +217,17 @@ $(".continue-btn").on("click", function() {
 	startTimer();
 });
 
+$("#blind-btn").on("click", function() {
+	randomizeColor();
+	setTime(startMinutes,startSeconds,startDecaSeconds);
+	startTimer();
+});
+
+$(".blindkeep-btn").on("click", function() {
+	initVars();
+	randomizeColor();
+});
+
 $(document).on("change", "input", function() {
 	var usrRed = $("#red-val").val();
 	var usrGreen = $("#green-val").val();
@@ -204,6 +256,10 @@ $(document).on("change", "input", function() {
 	var usrGreenend = $("#green-valend").val();
 	var usrBlueend = $("#blue-valend").val();
 	$(".color-rect-usrend").css("background-color", "rgba("+usrRedend+","+usrGreenend+","+usrBlueend+",255)");
+	var usrRedb = $("#red-valb").val();
+	var usrGreenb = $("#green-valb").val();
+	var usrBlueb= $("#blue-valb").val();
+	$(".color-rect-usrb").css("background-color", "rgba("+usrRedb+","+usrGreenb+","+usrBlueb+",255)");
 	console.log("color-changed");
 });
 
