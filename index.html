@@ -23,7 +23,7 @@
 				<p id="canvas">
 					Lets do this!
 				</p>
-				<img src="App Logo.jpg" style="width: 100%; height: 100%;">
+				<img src="App Logo 2.jpg" style="width: 100%; height: 100%;">
 				<br>
 				<div class="text-centered">
 					<a class="ui-btn play-btn" href="#gamePage">Play</a>
@@ -279,14 +279,80 @@
 
 			<div data-role="main" class="ui-content">
 				<div class="text-centered">
-					<a class="ui-btn" href="">Speed Mode</a>
+					<a class="ui-btn" href="#speedPage">Speed Mode</a>
 					<a class="ui-btn" href="">Accuracy Mode</a>
 					<a class="ui-btn" href="">Endless</a>
 					<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 				</div>
 			</div>
+	</div>
+	
+	<div data-role="page" id="speedPage">
+		<div data-role="header">
+			<h1>Speed Mode</h1>
 		</div>
 
+		<div data-role="main" class="ui-content">
+			<h1>FAST! FAST! FAST!</h1>
+			<p id="canvas">
+				<div class="color-rect"></div>
+				<div class="color-rect-usrspd"></div>
+				<br>
+				Red:
+				<input type="range" name="points" id="red-valspd" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+				Green:
+				<input type="range" name="points" id="green-valspd" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+				Blue:
+				<input type="range" name="points" id="blue-valspd" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+			</p>
+			<br>
+			<a class="ui-btn" id="pick-btn" href="#speedNextPage">Pick Color!</a>
+			<a class="ui-btn" id="quit-btn" href = "#homePage">Quit</a>
+		</div>
+
+		<div data-role="footer">
+			<h1>Speed Mode</h1>
+		</div>
+	</div>
+
+	<div data-role="page" id="speedNextPage">
+		<div data-role="header">
+			<h1>Speed Mode</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<h1>
+				Round Score: <span id="round-scorespd"></span>
+				<br>
+				Average Score: <span id="total-scorespd"></span>
+			</h1>
+				
+			</p>
+			<div class="color-rect">
+				<p class="col-par">
+					<h4>Color Goal</h4>
+					Red: <span class="red-col"></span><br>
+					Green: <span class="green-col"></span><br>
+					Blue: <span class="blue-col"></span>
+				</p>
+			</div>
+			<div class="color-rect-usr">
+				<p class="col-par-usrspd">
+					<h4>Your Color</h4>
+					Red: <span class="red-col-usr"></span><br>
+					Green: <span class="green-col-usr"></span><br>
+					Blue: <span class="blue-col-usr"></span>
+				</p>
+			</div>
+			<br>
+			<a class="ui-btn play-btn" href="#gamePage">Continue</a>
+			<a class="ui-btn" id="quit-btn" href = "#homePage">Quit</a>
+		</div>
+
+		<div data-role="footer">
+			<h1>Speed Mode</h1>
+		</div>
+	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>

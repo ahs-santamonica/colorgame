@@ -59,6 +59,10 @@ $(document).on("change", "input", function() {
 	var usrGreen = $("#green-val").val();
 	var usrBlue = $("#blue-val").val();
 	$(".color-rect-usr").css("background-color", "rgba("+usrRed+","+usrGreen+","+usrBlue+",255)");
+	var usrRedspd = $("#red-valspd").val();
+	var usrGreenspd = $("#green-valspd").val();
+	var usrBluespd = $("#blue-valspd").val();
+	$(".color-rect-usrspd").css("background-color", "rgba("+usrRedspd+","+usrGreenspd+","+usrBluespd+",255)");
 	console.log("color-changed");
 });
 
