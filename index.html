@@ -44,6 +44,7 @@
 
 		<div data-role="main" class="ui-content">
 			<h1>Find The Color!</h1>
+			<h2 id="timerP"></h2>
 			<p id="canvas">
 				<div class="color-rect"></div>
 				<div class="color-rect-usr"></div>
@@ -71,12 +72,12 @@
 		</div>
 
 		<div data-role="main" class="ui-content">
-			<h1>
-				Round Score: <span id="round-score"></span>
-				<br>
-				Average Score: <span id="total-score"></span>
-			</h1>
-				
+			<h1>Here is your score:</h1>
+			<p id="canvas">
+				Round Score: <span id="round-score"></span><br>
+				Average Score: <span id="total-score"></span><br>
+				Round Time: <span id="round-time"></span><br>
+				Total Time: <span id="total-time"></span>
 			</p>
 			<div class="color-rect">
 				<p class="col-par">
@@ -95,7 +96,7 @@
 				</p>
 			</div>
 			<br>
-			<a class="ui-btn play-btn" href="#gamePage">Continue</a>
+			<a class="ui-btn continue-btn" href="#gamePage">Continue</a>
 			<a class="ui-btn" id="quit-btn" href = "#homePage">Quit</a>
 		</div>
 
@@ -308,8 +309,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
-		
+	<script src="js/timing.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
