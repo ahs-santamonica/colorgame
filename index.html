@@ -23,17 +23,18 @@
 				<p id="canvas">
 					Lets do this!
 				</p>
-			<br>
-			<div class="text-centered">
-				<a class="ui-btn play-btn" href="#gamePage">Play</a>
-				<a class="ui-btn" id="help-btn" href="#tutorialPage">How to Play</a>
+				<img src="Logo.png">
+				<br>
+				<div class="text-centered">
+					<a class="ui-btn play-btn" href="#gamePage">Play</a>
+					<a class="ui-btn" id="help-btn" href="#tutorialPage">How to Play</a>
+				</div>
+			</div>
+
+			<div data-role="footer">
+			<h1>Color Game</h1>
 			</div>
 		</div>
-
-		<div data-role="footer">
-			<h1>Color Game</h1>
-		</div>
-	</div>
 
 	<div data-role="page" id="gamePage">
 		<div data-role="header">
@@ -69,15 +70,14 @@
 		</div>
 
 		<div data-role="main" class="ui-content">
-			<h1>Here is your score:</h1>
-			<p id="canvas">
-				Round Score: <span id="round-score"></span>
+			<h1>
+				Round Score: <span id="round-score"></span>%
 				<br>
-				Total Score: <span id="total-score"></span>
-			</p>
+				Total Score: <span id="total-score"></span>%
+			</h1>
 			<div class="color-rect">
 				<p class="col-par">
-					Color Goal<br>
+					<h4>Color Goal</h4>
 					Red: <span class="red-col"></span><br>
 					Green: <span class="green-col"></span><br>
 					Blue: <span class="blue-col"></span>
@@ -85,7 +85,7 @@
 			</div>
 			<div class="color-rect-usr">
 				<p class="col-par-usr">
-					Your Color<br>
+					<h4>Your Color</h4>
 					Red: <span class="red-col-usr"></span><br>
 					Green: <span class="green-col-usr"></span><br>
 					Blue: <span class="blue-col-usr"></span>
@@ -133,6 +133,7 @@
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage3">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">
@@ -153,6 +154,7 @@
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn3" href="#tutorialPage4">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage2">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">
@@ -173,6 +175,7 @@
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn4" href="#tutorialPage5">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage3">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">
@@ -193,6 +196,7 @@
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn5" href="#tutorialPage6">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage4">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">
@@ -212,6 +216,7 @@
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn6" href="#tutorialPage7">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage5">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">
@@ -234,6 +239,7 @@
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn7" href="#tutorialPage8">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage6">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">
@@ -254,6 +260,7 @@
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn8" href="#gamePage">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage7">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">

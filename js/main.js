@@ -27,7 +27,7 @@ $("#pick-btn").on("click", function() {
 	correct = Math.round((300-incorrect)/3);
 	total += correct;
 	counter++;
-	totalPercent = total/counter;
+	totalPercent = Math.round(total/counter);
 
 	$("#round-score").html(correct);
 	$("#total-score").html(totalPercent);
