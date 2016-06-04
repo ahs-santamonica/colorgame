@@ -27,7 +27,7 @@ function initTimer() {
 		t = setTimeout(subTime, 10);
 	}
 	else {
-		$("#timerP").html("00:00:00");
+		$(".timerP").html("00:00:00");
 		console.log("Ran out of time! 2 ");
 		gameOverTime();
 	}
@@ -47,7 +47,7 @@ function subTime() {
 		}
 	}
 
-	$("#timerP").html(pad(minutes,2)+":"+pad(seconds,2)+":"+pad(decaseconds,2));
+	$(".timerP").html(pad(minutes,2)+":"+pad(seconds,2)+":"+pad(decaseconds,2));
 
 	initTimer();
 }
@@ -75,7 +75,7 @@ function setTime(min,sec,dec) {
 	seconds=sec;
 	decaseconds=dec;
 	
-	$("#timerP").html(pad(minutes,2)+":"+pad(seconds,2)+":"+pad(decaseconds,2));
+	$(".timerP").html(pad(minutes,2)+":"+pad(seconds,2)+":"+pad(decaseconds,2));
 }
 
 function stopTime() {

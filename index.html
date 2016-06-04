@@ -45,7 +45,7 @@
 		</div>
 		<div data-role="main" class="ui-content">
 			<h1>Find The Color!</h1>
-			<h2 id="timerP"></h2>
+			<h2 class ="timerP"></h2>
 			<p id="canvas">
 				<div class="color-rect"></div>
 				<div class="color-rect-usr"></div>
@@ -76,8 +76,8 @@
 			<p id="canvas">
 				Round Score: <span id="round-score"></span><br>
 				Average Score: <span id="total-score"></span><br>
-				Round Time: <span id="round-time"></span><br>
-				Total Time: <span id="total-time"></span>
+				Round Time: <span class ="round-time"></span><br>
+				Total Time: <span class ="total-time"></span>
 			</p>
 			<div class="color-rect">
 				<p class="col-par">
@@ -260,7 +260,7 @@
 
 			<div data-role="main" class="ui-content">
 				<div class="text-centered">
-					<a class="ui-btn" href="">Speed Mode</a>
+					<a class="ui-btn" id = "blind-btn" href="#blindPage">Blind Mode</a>
 					<a class="ui-btn" id = "accuracy-btn" href="#accuracyPage">Accuracy Mode</a>
 					<a class="ui-btn" id = "endless-btn" href="#endlessPage">Practice Mode</a>
 					<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
@@ -435,6 +435,64 @@
 			</div>
 			<br>
 			<a class="ui-btn keepgoing-btn" href="#endlessPage">Keep Going</a>
+			<a class="ui-btn" id="quit-btn" href = "#homePage">Quit</a>
+		</div>
+
+		<div data-role="footer">
+			<h1>Color Game</h1>
+		</div>
+	</div>
+	
+	<div data-role="page" id="blindPage">
+			<div data-role="header">
+				<h1>Blind Mode</h1>
+			</div>
+			<h2 class ="timerP"></h2>
+			<p id="canvas">
+				<div class="color-rect"></div>
+				<br>
+				Red:
+				<input type="range" name="points" id="red-valb" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+				Green:
+				<input type="range" name="points" id="green-valb" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+				Blue:
+				<input type="range" name="points" id="blue-valb" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+			</p>
+			<a class="ui-btn pick-btn" href="#nextBlindPage">Guess Color!</a>
+			<a class="ui-btn" id="quit-btn" href = "#homePage">Quit</a>
+	</div>
+	
+	<div data-role="page" id="nextBlindPage">
+		<div data-role="header">
+			<h1>Blind Mode</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<h1>Here is your score:</h1>
+			<p id="canvas">
+				Round Score: <span id="round-scoreb"></span><br>
+				Average Score: <span id="total-scoreb"></span><br>
+				Round Time: <span class="round-time"></span><br>
+				Total Time: <span class="total-time"></span>
+			</p>
+			<div class="color-rect">
+				<p class="col-par">
+					<h4>Color Goal</h4>
+					Red: <span class="red-col"></span><br>
+					Green: <span class="green-col"></span><br>
+					Blue: <span class="blue-col"></span>
+				</p>
+			</div>
+			<div class="color-rect-usrb">
+				<p class="col-par-usrb">
+					<h4>Your Color</h4>
+					Red: <span class="red-col-usrb"></span><br>
+					Green: <span class="green-col-usrb"></span><br>
+					Blue: <span class="blue-col-usrb"></span>
+				</p>
+			</div>
+			<br>
+			<a class="ui-btn blindkeep-btn" href="#blindPage">Keep Going</a>
 			<a class="ui-btn" id="quit-btn" href = "#homePage">Quit</a>
 		</div>
 
