@@ -80,16 +80,16 @@
 					<p class="col-par">
 						Color Goal<br>
 						Red: <span class="red-col"></span><br>
-						Green: <span class="red-col"></span><br>
-						Blue: <span class="red-col"></span>
+						Green: <span class="green-col"></span><br>
+						Blue: <span class="blue-col"></span>
 					</p>
 				</div>
 				<div class="color-rect-usr">
 					<p class="col-par-usr">
 						Your Color<br>
 						Red: <span class="red-col-usr"></span><br>
-						Green: <span class="red-col-usr"></span><br>
-						Blue: <span class="red-col-usr"></span>
+						Green: <span class="green-col-usr"></span><br>
+						Blue: <span class="blue-col-usr"></span>
 					</p>
 				</div>
 				<p>
@@ -109,69 +109,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script>
-
-		var isPlaying = false;
-		var round = 0;
-		var red = 0;
-		var green = 0;
-		var blue = 0;
-		var totalScore = 0;
-		var tempScore = 0;
-
-		function randomizeColor() {
-			red = Math.round(Math.random() * 255);
-			green = Math.round(Math.random() * 255);
-			blue = Math.round(Math.random() * 255);
-			$(".color-rect").css("background-color", "rgba("+red+","+green+","+blue+",255)");
-			console.log("rgba("+red+","+green+","+blue+",255)");
-		}
-
-		$("#pick-btn").on("click", function() {
-			var usrRed = $("#red-val").val();
-			var usrGreen = $("#green-val").val();
-			var usrBlue = $("#blue-val").val();
-
-			tempScore = 0;
-			tempScore += Math.abs(usrRed - red) - Math.abs(usrGreen - green) - Math.abs(usrBlue - blue);
-
-			totalScore += tempScore;
-
-			$("#round-score").html(tempScore);
-			$("#total-score").html(totalScore);
-
-			$(".red-col").html(red);
-			$(".red-col").html(green);
-			$(".red-col").html(blue);
-			$(".red-col-usr").html(usrRed);
-			$(".red-col-usr").html(usrGreen);
-			$(".red-col-usr").html(usrBlue);
-
-			$(".col-par").css("color", "rgba("+(255-red)+","+(255-green)+","+(255-blue)+")");
-			$(".col-par-usr").css("color", "rgba("+(255-usrRed)+","+(255-usrGreen)+","+(255-usrBlue)+")");
-
-			round++;
-
-			if(round >= 3) {
-				// Game Over, show final screen
-			}
-		});
-
-		$(".play-btn").on("click", function() {
-			var isPlaying = true;
-			randomizeColor();
-		});
-
-		$(document).on("change", "input", function() {
-			var usrRed = $("#red-val").val();
-			var usrGreen = $("#green-val").val();
-			var usrBlue = $("#blue-val").val();
-			$(".color-rect-usr").css("background-color", "rgba("+usrRed+","+usrGreen+","+usrBlue+",255)");
-			console.log("color-changed");
-		});
-
-		$(window).on("load", randomizeColor());
-
-	</script>
+	<script src="js/" type="text/javascript" charset="utf-8"></script>
 </body>
+
 </html>
