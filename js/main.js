@@ -19,6 +19,14 @@ var incorrectonce = 0;
 var correctonce = 0;
 var finalScore = 0;
 var totalPossibleSocre = 100;
+var redend = 0;
+var greenend = 0;
+var blueend = 0;
+var totalPercentend = 0;
+var totalend = 0;
+var counterend = 0;
+var incorrectend = 0;
+var correctend = 0;
 
 function randomizeColor() {
 	red = Math.round(Math.random() * 255);
@@ -107,6 +115,25 @@ function pickColor() {
 	$(".green-col-usronce").html(usrGreenonce);
 	$(".blue-col-usronce").html(usrBlueonce);
 	
+	var usrRedend = $("#red-valend").val();
+	var usrGreenend = $("#green-valend").val();
+	var usrBlueend = $("#blue-valend").val();
+
+	incorrectend = 0;
+	incorrectend = ((((Math.abs(usrRedend - red))/255)*100) + (((Math.abs(usrGreenend - green))/255)*100) + (((Math.abs(usrBlueend - blue))/255)*100));
+	correctend = Math.round((300-incorrectend)/3);
+	totalend += correctend;
+	counterend++;
+	totalPercentend = Math.round(totalend/counterend);
+	$("#round-scoreend").html(correctend + "%");
+	$("#total-scoreend").html(totalPercentend + "%");
+	$(".red-col").html(red);
+	$(".green-col").html(green);
+	$(".blue-col").html(blue);
+	$(".red-col-usrend").html(usrRedend);
+	$(".green-col-usrend").html(usrGreenend);
+	$(".blue-col-usrend").html(usrBlueend);
+	
 	round++;
 
 	if(round >= totalRounds) {
@@ -125,6 +152,9 @@ $(".play-btn").on("click", function() {
 	randomizeColor();
 });
 
+$(".keepgoing-btn").on("click", function() {
+	randomizeColor();
+});
 
 $(".reset-btn").on("click", function() {
 	$("#red-valonce" ).slider( 'enable');
@@ -161,6 +191,10 @@ $(document).on("change", "input", function() {
 	var usrBlueonce = $("#blue-valonce").val();
 	$("#blue-valonce" ).prop( "disabled", true);
 	$(".color-rect-usronce").css("background-color", "rgba("+usrRedonce+","+usrGreenonce+","+usrBlueonce+",255)");
+	var usrRedend = $("#red-valend").val();
+	var usrGreenend = $("#green-valend").val();
+	var usrBlueend = $("#blue-valend").val();
+	$(".color-rect-usrend").css("background-color", "rgba("+usrRedend+","+usrGreenend+","+usrBlueend+",255)");
 	console.log("color-changed");
 });
 
