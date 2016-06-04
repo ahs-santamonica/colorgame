@@ -81,7 +81,7 @@ function pickColor() {
 	}
 }
 
-$("#pick-btn").on("click", function() {
+$(".pick-btn").on("click", function() {
 	pickColor();
 });
 
