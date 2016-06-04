@@ -67,6 +67,8 @@ function endGame() {
 	console.log("finalScore: " + finalScore);
 	stopTime();
 	window.location.href = "#finalPage";
+	$("#score-box-hidden").val(finalScore);
+	initVars();
 }
 
 function pickColor() {
@@ -228,6 +230,10 @@ $(document).on("change", "input", function() {
 	var usrGreen = $("#green-val").val();
 	var usrBlue = $("#blue-val").val();
 	$(".color-rect-usr").css("background-color", "rgba("+usrRed+","+usrGreen+","+usrBlue+",255)");
+	var usrRedspd = $("#red-valspd").val();
+	var usrGreenspd = $("#green-valspd").val();
+	var usrBluespd = $("#blue-valspd").val();
+	$(".color-rect-usrspd").css("background-color", "rgba("+usrRedspd+","+usrGreenspd+","+usrBluespd+",255)");
 	var usrRed2 = $("#red-val2").val();
 	var usrGreen2 = $("#green-val2").val();
 	var usrBlue2 = $("#blue-val2").val();
