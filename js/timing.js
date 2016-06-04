@@ -9,7 +9,7 @@ var totalMinutes = 0;
 var totalSeconds = 0;
 var totalDecaSeconds = 0;
 var startMinutes = 0;
-var startSeconds = 2;
+var startSeconds = 20;
 var startDecaSeconds = 0;
 var t;
 var timeIsOut = false;
