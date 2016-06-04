@@ -8,6 +8,7 @@ var total = 0;
 var counter = 0;
 var incorrect = 0;
 var correct = 0;
+var time;
 
 function randomizeColor() {
 	red = Math.round(Math.random() * 255);
@@ -15,6 +16,12 @@ function randomizeColor() {
 	blue = Math.round(Math.random() * 255);
 	$(".color-rect").css("background-color", "rgba("+red+","+green+","+blue+",255)");
 	console.log("rgba("+red+","+green+","+blue+",255)");
+}
+
+function initVars() {
+	counter = 0;
+	round = 0;
+	totalPercent = 0;
 }
 
 $("#pick-btn").on("click", function() {
@@ -51,6 +58,7 @@ $("#pick-btn").on("click", function() {
 
 $(".play-btn").on("click", function() {
 	var isPlaying = true;
+	initVars();
 	randomizeColor();
 });
 
