@@ -21,92 +21,238 @@
 			<div data-role="main" class="ui-content">
 				<h1>Ready to Play?</h1>
 				<p id="canvas">
-					Here are the rules:
-					Color Rush is a game based around who is the best at recognizing colors.
-					It is recommended for people who are not colorblind, but we encourage anyone to try this game out. If you happen to be colorblind, think of yourself as playing this game on Hard Mode!To start, there are three primary colors:  <span style="color: red">red</span>, <span style="color: green">green</span>, and  <span style="color: blue">blue</span>
- 			</p>
-				<br>
-				<div class="text-centered">
-					<a class="ui-btn play-btn" href="#gamePage">Play</a>
-				</div>
-				
-			</div>
-
-			<div data-role="footer">
-				<h1>Color Game</h1>
+					Lets do this!
+				</p>
+				Here are the rules:
+				Color Rush is a game based around who is the best at recognizing colors.
+				It is recommended for people who are not colorblind, but we encourage anyone to try this game out. If you happen to be colorblind, think of yourself as playing this game on Hard Mode!To start, there are three primary colors:  <span style="color: red">red</span>, <span style="color: green">green</span>, and  <span style="color: blue">blue</span>
+			</p>
+			<br>
+			<div class="text-centered">
+				<a class="ui-btn play-btn" href="#gamePage">Play</a>
+				<a class="ui-btn" id="help-btn" href="#tutorialPage">How to Play</a>
 			</div>
 		</div>
 
-		<div data-role="page" id="gamePage">
-			<div data-role="header">
-				<h1>Color Game</h1>
-			</div>
-
-			<div data-role="main" class="ui-content">
-				<h1>Find The Color!</h1>
-				<p id="canvas">
-					<div class="color-rect"></div>
-					<div class="color-rect-usr"></div>
-					<br>
-					Red:
-					<input type="range" name="points" id="red-val" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
-					Green:
-					<input type="range" name="points" id="green-val" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
-					Blue:
-					<input type="range" name="points" id="blue-val" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
-				</p>
-				<br>
-				<a class="ui-btn" id="pick-btn" href="#nextPage">Pick Color!</a>
-			</div>
-
-			<div data-role="footer">
-				<h1>Color Game</h1>
-			</div>
+		<div data-role="footer">
+			<h1>Color Game</h1>
 		</div>
-
-		<div data-role="page" id="nextPage">
-			<div data-role="header">
-				<h1>Color Game</h1>
-			</div>
-
-			<div data-role="main" class="ui-content">
-				<h1>Here is your score:</h1>
-				<p id="canvas">
-					Round Score: <span id="round-score"></span>
-					<br>
-					Total Score: <span id="total-score"></span>
-				</p>
-				<div class="color-rect">
-					<p class="col-par">
-						Color Goal<br>
-						Red: <span class="red-col"></span><br>
-						Green: <span class="green-col"></span><br>
-						Blue: <span class="blue-col"></span>
-					</p>
-				</div>
-				<div class="color-rect-usr">
-					<p class="col-par-usr">
-						Your Color<br>
-						Red: <span class="red-col-usr"></span><br>
-						Green: <span class="green-col-usr"></span><br>
-						Blue: <span class="blue-col-usr"></span>
-					</p>
-				</div>
-				<p>
-					Red Error: <span class="red-error"></span><br>
-					Green Error: <span class="green-error"></span><br>
-					Blue Error: <span class="red-error"></span><br>
-				</p>
-				<br>
-				<a class="ui-btn play-btn" href="#gamePage">Continue</a>
-			</div>
-
-			<div data-role="footer">
-				<h1>Color Game</h1>
-			</div>
-		</div>
-		
 	</div>
+
+	<div data-role="page" id="gamePage">
+		<div data-role="header">
+			<h1>Color Game</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<h1>Find The Color!</h1>
+			<p id="canvas">
+				<div class="color-rect"></div>
+				<div class="color-rect-usr"></div>
+				<br>
+				Red:
+				<input type="range" name="points" id="red-val" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+				Green:
+				<input type="range" name="points" id="green-val" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+				Blue:
+				<input type="range" name="points" id="blue-val" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+			</p>
+			<br>
+			<a class="ui-btn" id="pick-btn" href="#nextPage">Pick Color!</a>
+		</div>
+
+		<div data-role="footer">
+			<h1>Color Game</h1>
+		</div>
+	</div>
+
+	<div data-role="page" id="nextPage">
+		<div data-role="header">
+			<h1>Color Game</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<h1>Here is your score:</h1>
+			<p id="canvas">
+				Round Score: <span id="round-score"></span>
+				<br>
+				Total Score: <span id="total-score"></span>
+			</p>
+			<div class="color-rect">
+				<p class="col-par">
+					Color Goal<br>
+					Red: <span class="red-col"></span><br>
+					Green: <span class="green-col"></span><br>
+					Blue: <span class="blue-col"></span>
+				</p>
+			</div>
+			<div class="color-rect-usr">
+				<p class="col-par-usr">
+					Your Color<br>
+					Red: <span class="red-col-usr"></span><br>
+					Green: <span class="green-col-usr"></span><br>
+					Blue: <span class="blue-col-usr"></span>
+				</p>
+			</div>
+			<p>
+				Red Error: 
+			</p>
+			<br>
+			<a class="ui-btn" id="quit-btn" href = "#homePage">Quit</a>
+			<a class="ui-btn play-btn" href="#gamePage">Continue</a>
+		</div>
+
+		<div data-role="footer">
+			<h1>Color Game</h1>
+		</div>
+	</div>
+
+	<div data-role="page" id="tutorialPage">
+		<div data-role="header">
+			<h1>Tutorial</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<p id="canvas">
+				Color Rush is a game based around who is the best at recognizing colors.
+			</p>
+			<br>
+			<div class="text-centered">
+				<a class="ui-btn" id="nxt-btn" href="#tutorialPage2">Next</a>
+				<br>
+				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="tutorialPage2">
+		<div data-role="header">
+			<h1>Tutorial</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<p id="canvas">
+				It is recommended for people who are not colorblind, but we encourage anyone to try this game out.
+			</p>
+			<br>
+			<div class="text-centered">
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage3">Next</a>
+				<br>
+				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="tutorialPage3">
+		<div data-role="header">
+			<h1>Tutorial</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<p id="canvas">
+				If you happen to be colorblind, think of yourself as playing this game on Hard Mode!
+			</p>
+			<br>
+			<div class="text-centered">
+				<a class="ui-btn" id="nxt-btn3" href="#tutorialPage4">Next</a>
+				<br>
+				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="tutorialPage4">
+		<div data-role="header">
+			<h1>Tutorial</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<p id="canvas">
+				To start, there are three primary colors:  <span style="color: red">red</span>,  <span style="color: green">green</span>, and  <span style="color: blue">blue</span>
+			</p>
+			<br>
+			<div class="text-centered">
+				<a class="ui-btn" id="nxt-btn4" href="#tutorialPage5">Next</a>
+				<br>
+				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="tutorialPage5">
+		<div data-role="header">
+			<h1>Tutorial</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<p id="canvas">
+				If you drag the sliders up and down, you can choose which color shows up more, and which one shows up less. 
+			</p>
+			<br>
+			<div class="text-centered">
+				<a class="ui-btn" id="nxt-btn5" href="#tutorialPage6">Next</a>
+				<br>
+				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="tutorialPage6">
+		<div data-role="header">
+			<h1>Tutorial</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<p id="canvas">
+				Try mixing the sliders around to see what shades show up!
+			</p>
+			<br>
+			<div class="text-centered">
+				<a class="ui-btn" id="nxt-btn6" href="#tutorialPage7">Next</a>
+				<br>
+				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="tutorialPage7">
+		<div data-role="header">
+			<h1>Tutorial</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<p id="canvas">
+				Rules of the game:
+				At the beginning of each round, a random color will appear on the top screen.
+				Your job will be to try to find the combination of sliders that comes closest to matching the color on top.
+			</p>
+			<br>
+			<div class="text-centered">
+				<a class="ui-btn" id="nxt-btn7" href="#tutorialPage8">Next</a>
+				<br>
+				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="tutorialPage8">
+		<div data-role="header">
+			<h1>Tutorial</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<p id="canvas">
+				Try this now!
+			</p>
+			<br>
+			<div class="text-centered">
+				<a class="ui-btn" id="nxt-btn8" href="#gamePage">Next</a>
+				<br>
+				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
+			</div>
+		</div>
+	</div>
+
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
