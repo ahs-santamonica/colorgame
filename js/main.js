@@ -121,6 +121,9 @@ function pickColor() {
 	$(".red-col").html(red);
 	$(".green-col").html(green);
 	$(".blue-col").html(blue);
+	$(".red-col-usr").html(red);
+	$(".green-col-usr").html(green);
+	$(".blue-col-usr").html(blue);
 	$(".red-col-usronce").html(usrRedonce);
 	$(".green-col-usronce").html(usrGreenonce);
 	$(".blue-col-usronce").html(usrBlueonce);
