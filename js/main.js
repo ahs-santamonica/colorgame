@@ -8,6 +8,15 @@ var total = 0;
 var counter = 0;
 var incorrect = 0;
 var correct = 0;
+var redonce = 0;
+var greenonce = 0;
+var blueonce = 0;
+var totalPercentonce = 0;
+var totalonce = 0;
+var counteronce = 0;
+var incorrectonce = 0;
+var correctonce = 0;
+
 
 function randomizeColor() {
 	red = Math.round(Math.random() * 255);
@@ -64,16 +73,28 @@ function pickColor() {
 	$("#round-time").html(pad(savedMinutes,2)+":"+pad(savedSeconds,2)+":"+pad(savedDecaSeconds,2));
 	$("#total-time").html(pad(totalMinutes,2)+":"+pad(totalSeconds,2)+":"+pad(totalDecaSeconds,2));
 
-	$(".red-col").html(red);
-	$(".green-col").html(green);
-	$(".blue-col").html(blue);
-	$(".red-col-usr").html(usrRed);
-	$(".green-col-usr").html(usrGreen);
-	$(".blue-col-usr").html(usrBlue);
+	var usrRedonce = $("#red-valonce").val();
+	var usrGreenonce = $("#green-valonce").val();
+	var usrBlueonce = $("#blue-valonce").val();
 
 	$(".col-par").css("color", "rgba("+(255-red)+","+(255-green)+","+(255-blue)+")");
 	$(".col-par-usr").css("color", "rgba("+(255-usrRed)+","+(255-usrGreen)+","+(255-usrBlue)+")");
 
+	incorrectonce = 0;
+	incorrectonce = ((((Math.abs(usrRedonce - red))/255)*100) + (((Math.abs(usrGreenonce - green))/255)*100) + (((Math.abs(usrBlueonce - blue))/255)*100));
+	correctonce = Math.round((300-incorrectonce)/3);
+	totalonce += correctonce;
+	counteronce++;
+	totalPercentonce = Math.round(totalonce/counteronce);
+	$("#round-scoreonce").html(correctonce + "%");
+	$("#total-scoreonce").html(totalPercentonce + "%");
+	$(".red-col").html(red);
+	$(".green-col").html(green);
+	$(".blue-col").html(blue);
+	$(".red-col-usronce").html(usrRedonce);
+	$(".green-col-usronce").html(usrGreenonce);
+	$(".blue-col-usronce").html(usrBlueonce);
+	
 	round++;
 
 	if(round >= 3) {
@@ -81,7 +102,7 @@ function pickColor() {
 	}
 }
 
-$("#pick-btn").on("click", function() {
+$(".pick-btn").on("click", function() {
 	pickColor();
 });
 
@@ -89,6 +110,15 @@ $(".play-btn").on("click", function() {
 	var isPlaying = true;
 	initVars();
 	randomizeColor();
+});
+
+
+$(".reset-btn").on("click", function() {
+	$("#red-valonce" ).slider( 'enable');
+	$("#green-valonce" ).slider( 'enable');
+	$("#blue-valonce" ).slider( 'enable' );
+	randomizeColor();
+	console.log("reset");
 });
 
 $(".continue-btn").on("click", function() {
@@ -111,6 +141,13 @@ $(document).on("change", "input", function() {
 	var usrGreen3 = $("#green-val3").val();
 	var usrBlue3 = $("#blue-val3").val();
 	$(".color-rect-usr3").css("background-color", "rgba("+usrRed3+","+usrGreen3+","+usrBlue3+",255)");
+	var usrRedonce = $("#red-valonce").val();
+	$("#red-valonce" ).prop( "disabled", true);
+	var usrGreenonce = $("#green-valonce").val();
+	$("#green-valonce" ).prop( "disabled", true);
+	var usrBlueonce = $("#blue-valonce").val();
+	$("#blue-valonce" ).prop( "disabled", true);
+	$(".color-rect-usronce").css("background-color", "rgba("+usrRedonce+","+usrGreenonce+","+usrBlueonce+",255)");
 	console.log("color-changed");
 });
 
