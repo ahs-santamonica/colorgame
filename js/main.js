@@ -1,5 +1,6 @@
 var isPlaying = false;
 var round = 0;
+var totalRounds = 3;
 var red = 0;
 var green = 0;
 var blue = 0;
@@ -8,6 +9,24 @@ var total = 0;
 var counter = 0;
 var incorrect = 0;
 var correct = 0;
+var redonce = 0;
+var greenonce = 0;
+var blueonce = 0;
+var totalPercentonce = 0;
+var totalonce = 0;
+var counteronce = 0;
+var incorrectonce = 0;
+var correctonce = 0;
+var finalScore = 0;
+var totalPossibleSocre = 100;
+var redend = 0;
+var greenend = 0;
+var blueend = 0;
+var totalPercentend = 0;
+var totalend = 0;
+var counterend = 0;
+var incorrectend = 0;
+var correctend = 0;
 
 function randomizeColor() {
 	red = Math.round(Math.random() * 255);
@@ -30,6 +49,16 @@ function initVars() {
 	setTime(startMinutes,startSeconds,startDecaSeconds);
 	startTimer();
 	console.log("Initialized variables");
+}
+
+function endGame() {
+	// 50% accuracy and 50% speed
+	var totalPossiblDecaSeconds = (startMinutes * 60 * 100 + startSeconds * 100 + startDecaSeconds) * totalRounds;
+	finalScore = Math.round(totalPercent / 2.0 + ((totalPossiblDecaSeconds - (totalMinutes * 60 * 100 + totalSeconds * 100.0 + totalDecaSeconds)) / totalPossiblDecaSeconds) * 50.0);
+	$(".finalScore").html(finalScore + " / " + totalPossibleSocre);
+	console.log("finalScore: " + finalScore);
+	stopTime();
+	window.location.href = "#finalPage";
 }
 
 function pickColor() {
@@ -64,24 +93,56 @@ function pickColor() {
 	$("#round-time").html(pad(savedMinutes,2)+":"+pad(savedSeconds,2)+":"+pad(savedDecaSeconds,2));
 	$("#total-time").html(pad(totalMinutes,2)+":"+pad(totalSeconds,2)+":"+pad(totalDecaSeconds,2));
 
-	$(".red-col").html(red);
-	$(".green-col").html(green);
-	$(".blue-col").html(blue);
-	$(".red-col-usr").html(usrRed);
-	$(".green-col-usr").html(usrGreen);
-	$(".blue-col-usr").html(usrBlue);
+	var usrRedonce = $("#red-valonce").val();
+	var usrGreenonce = $("#green-valonce").val();
+	var usrBlueonce = $("#blue-valonce").val();
 
 	$(".col-par").css("color", "rgba("+(255-red)+","+(255-green)+","+(255-blue)+")");
 	$(".col-par-usr").css("color", "rgba("+(255-usrRed)+","+(255-usrGreen)+","+(255-usrBlue)+")");
 
+	incorrectonce = 0;
+	incorrectonce = ((((Math.abs(usrRedonce - red))/255)*100) + (((Math.abs(usrGreenonce - green))/255)*100) + (((Math.abs(usrBlueonce - blue))/255)*100));
+	correctonce = Math.round((300-incorrectonce)/3);
+	totalonce += correctonce;
+	counteronce++;
+	totalPercentonce = Math.round(totalonce/counteronce);
+	$("#round-scoreonce").html(correctonce + "%");
+	$("#total-scoreonce").html(totalPercentonce + "%");
+	$(".red-col").html(red);
+	$(".green-col").html(green);
+	$(".blue-col").html(blue);
+	$(".red-col-usronce").html(usrRedonce);
+	$(".green-col-usronce").html(usrGreenonce);
+	$(".blue-col-usronce").html(usrBlueonce);
+	
+	var usrRedend = $("#red-valend").val();
+	var usrGreenend = $("#green-valend").val();
+	var usrBlueend = $("#blue-valend").val();
+
+	incorrectend = 0;
+	incorrectend = ((((Math.abs(usrRedend - red))/255)*100) + (((Math.abs(usrGreenend - green))/255)*100) + (((Math.abs(usrBlueend - blue))/255)*100));
+	correctend = Math.round((300-incorrectend)/3);
+	totalend += correctend;
+	counterend++;
+	totalPercentend = Math.round(totalend/counterend);
+	$("#round-scoreend").html(correctend + "%");
+	$("#total-scoreend").html(totalPercentend + "%");
+	$(".red-col").html(red);
+	$(".green-col").html(green);
+	$(".blue-col").html(blue);
+	$(".red-col-usrend").html(usrRedend);
+	$(".green-col-usrend").html(usrGreenend);
+	$(".blue-col-usrend").html(usrBlueend);
+	
 	round++;
 
-	if(round >= 3) {
+	if(round >= totalRounds) {
 		// Game Over, show final screen
+		endGame();
 	}
 }
 
-$("#pick-btn").on("click", function() {
+$(".pick-btn").on("click", function() {
 	pickColor();
 });
 
@@ -89,6 +150,18 @@ $(".play-btn").on("click", function() {
 	var isPlaying = true;
 	initVars();
 	randomizeColor();
+});
+
+$(".keepgoing-btn").on("click", function() {
+	randomizeColor();
+});
+
+$(".reset-btn").on("click", function() {
+	$("#red-valonce" ).slider( 'enable');
+	$("#green-valonce" ).slider( 'enable');
+	$("#blue-valonce" ).slider( 'enable' );
+	randomizeColor();
+	console.log("reset");
 });
 
 $(".continue-btn").on("click", function() {
@@ -115,6 +188,17 @@ $(document).on("change", "input", function() {
 	var usrGreen3 = $("#green-val3").val();
 	var usrBlue3 = $("#blue-val3").val();
 	$(".color-rect-usr3").css("background-color", "rgba("+usrRed3+","+usrGreen3+","+usrBlue3+",255)");
+	var usrRedonce = $("#red-valonce").val();
+	$("#red-valonce" ).prop( "disabled", true);
+	var usrGreenonce = $("#green-valonce").val();
+	$("#green-valonce" ).prop( "disabled", true);
+	var usrBlueonce = $("#blue-valonce").val();
+	$("#blue-valonce" ).prop( "disabled", true);
+	$(".color-rect-usronce").css("background-color", "rgba("+usrRedonce+","+usrGreenonce+","+usrBlueonce+",255)");
+	var usrRedend = $("#red-valend").val();
+	var usrGreenend = $("#green-valend").val();
+	var usrBlueend = $("#blue-valend").val();
+	$(".color-rect-usrend").css("background-color", "rgba("+usrRedend+","+usrGreenend+","+usrBlueend+",255)");
 	console.log("color-changed");
 });
 
