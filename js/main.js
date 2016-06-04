@@ -34,7 +34,7 @@ $("#pick-btn").on("click", function() {
 	correct = Math.round((300-incorrect)/3);
 	total += correct;
 	counter++;
-	totalPercent = total/counter;
+	totalPercent = Math.round(total/counter);
 
 	$("#round-score").html(correct + "%");
 	$("#total-score").html(totalPercent + "%");
@@ -67,6 +67,14 @@ $(document).on("change", "input", function() {
 	var usrGreen = $("#green-val").val();
 	var usrBlue = $("#blue-val").val();
 	$(".color-rect-usr").css("background-color", "rgba("+usrRed+","+usrGreen+","+usrBlue+",255)");
+	var usrRed2 = $("#red-val2").val();
+	var usrGreen2 = $("#green-val2").val();
+	var usrBlue2 = $("#blue-val2").val();
+	$(".color-rect-usr2").css("background-color", "rgba("+usrRed2+","+usrGreen2+","+usrBlue2+",255)");
+	var usrRed3 = $("#red-val3").val();
+	var usrGreen3 = $("#green-val3").val();
+	var usrBlue3 = $("#blue-val3").val();
+	$(".color-rect-usr3").css("background-color", "rgba("+usrRed3+","+usrGreen3+","+usrBlue3+",255)");
 	console.log("color-changed");
 });
 

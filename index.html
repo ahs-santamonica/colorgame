@@ -23,17 +23,19 @@
 				<p id="canvas">
 					Lets do this!
 				</p>
-			<br>
-			<div class="text-centered">
-				<a class="ui-btn play-btn" href="#gamePage">Play</a>
-				<a class="ui-btn" id="help-btn" href="#tutorialPage">How to Play</a>
+				<img src="App Logo.jpg" style="width: 100%; height: 100%;">
+				<br>
+				<div class="text-centered">
+					<a class="ui-btn play-btn" href="#gamePage">Play</a>
+					<a class="ui-btn" id="help-btn" href="#tutorialPage">How to Play</a>
+					<a class="ui-btn mode-btn" href="#modePage">Game Modes</a>
+				</div>
+			</div>
+
+			<div data-role="footer">
+			<h1>Color Game</h1>
 			</div>
 		</div>
-
-		<div data-role="footer">
-			<h1>Color Game</h1>
-		</div>
-	</div>
 
 	<div data-role="page" id="gamePage">
 		<div data-role="header">
@@ -69,15 +71,16 @@
 		</div>
 
 		<div data-role="main" class="ui-content">
-			<h1>Here is your score:</h1>
-			<p id="canvas">
+			<h1>
 				Round Score: <span id="round-score"></span>
 				<br>
 				Average Score: <span id="total-score"></span>
+			</h1>
+				
 			</p>
 			<div class="color-rect">
 				<p class="col-par">
-					Color Goal<br>
+					<h4>Color Goal</h4>
 					Red: <span class="red-col"></span><br>
 					Green: <span class="green-col"></span><br>
 					Blue: <span class="blue-col"></span>
@@ -85,15 +88,15 @@
 			</div>
 			<div class="color-rect-usr">
 				<p class="col-par-usr">
-					Your Color<br>
+					<h4>Your Color</h4>
 					Red: <span class="red-col-usr"></span><br>
 					Green: <span class="green-col-usr"></span><br>
 					Blue: <span class="blue-col-usr"></span>
 				</p>
 			</div>
 			<br>
-			<a class="ui-btn" id="quit-btn" href = "#homePage">Quit</a>
 			<a class="ui-btn play-btn" href="#gamePage">Continue</a>
+			<a class="ui-btn" id="quit-btn" href = "#homePage">Quit</a>
 		</div>
 
 		<div data-role="footer">
@@ -133,6 +136,7 @@
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage3">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">
@@ -153,6 +157,7 @@
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn3" href="#tutorialPage4">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage2">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">
@@ -173,6 +178,7 @@
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn4" href="#tutorialPage5">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage3">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">
@@ -193,6 +199,7 @@
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn5" href="#tutorialPage6">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage4">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">
@@ -208,10 +215,19 @@
 		<div data-role="main" class="ui-content">
 			<p id="canvas">
 				Try mixing the sliders around to see what shades show up!
+				<div class="color-rect-usr2"></div>
+				<br>
+				Red:
+				<input type="range" name="points" id="red-val2" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+				Green:
+				<input type="range" name="points" id="green-val2" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+				Blue:
+				<input type="range" name="points" id="blue-val2" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
 			</p>
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn6" href="#tutorialPage7">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage5">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">
@@ -234,6 +250,7 @@
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn7" href="#tutorialPage8">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage6">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">
@@ -250,10 +267,20 @@
 		<div data-role="main" class="ui-content">
 			<p id="canvas">
 				Try this now!
+				<div class="color-rect"></div>
+				<div class="color-rect-usr3"></div>
+				<br>
+				Red:
+				<input type="range" name="points" id="red-val3" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+				Green:
+				<input type="range" name="points" id="green-val3" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+				Blue:
+				<input type="range" name="points" id="blue-val3" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
 			</p>
 			<br>
 			<div class="text-centered">
 				<a class="ui-btn" id="nxt-btn8" href="#gamePage">Next</a>
+				<a class="ui-btn" id="nxt-btn2" href="#tutorialPage7">Back</a>
 				<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 			</div>
 			<div data-role="footer">
@@ -261,6 +288,21 @@
 			</div>
 		</div>
 	</div>
+	
+	<div data-role="page" id="modePage">
+			<div data-role="header">
+				<h1>Game Modes</h1>
+			</div>
+
+			<div data-role="main" class="ui-content">
+				<div class="text-centered">
+					<a class="ui-btn" href="">Speed Mode</a>
+					<a class="ui-btn" href="">Accuracy Mode</a>
+					<a class="ui-btn" href="">Endless</a>
+					<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
+				</div>
+			</div>
+		</div>
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
