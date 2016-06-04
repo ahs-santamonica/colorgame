@@ -3,8 +3,11 @@ var round = 0;
 var red = 0;
 var green = 0;
 var blue = 0;
-var totalScore = 0;
-var tempScore = 0;
+var totalPercent = 0;
+var total = 0;
+var counter = 0;
+var incorrect = 0;
+var correct = 0;
 
 function randomizeColor() {
 	red = Math.round(Math.random() * 255);
@@ -19,13 +22,15 @@ $("#pick-btn").on("click", function() {
 	var usrGreen = $("#green-val").val();
 	var usrBlue = $("#blue-val").val();
 
-	tempScore = 0;
-	tempScore += Math.abs(usrRed - red) - Math.abs(usrGreen - green) - Math.abs(usrBlue - blue);
+	incorrect = 0;
+	incorrect = ((((Math.abs(usrRed - red))/255)*100) + (((Math.abs(usrGreen - green))/255)*100) + (((Math.abs(usrBlue - blue))/255)*100));
+	correct = Math.round((300-incorrect)/3);
+	total += correct;
+	counter++;
+	totalPercent = total/counter;
 
-	totalScore += tempScore;
-
-	$("#round-score").html(tempScore);
-	$("#total-score").html(totalScore);
+	$("#round-score").html(correct);
+	$("#total-score").html(totalPercent);
 
 	$(".red-col").html(red);
 	$(".green-col").html(green);
