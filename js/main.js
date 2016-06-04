@@ -1,5 +1,6 @@
 var isPlaying = false;
 var round = 0;
+var totalRounds = 3;
 var red = 0;
 var green = 0;
 var blue = 0;
@@ -16,7 +17,8 @@ var totalonce = 0;
 var counteronce = 0;
 var incorrectonce = 0;
 var correctonce = 0;
-
+var finalScore = 0;
+var totalPossibleSocre = 100;
 
 function randomizeColor() {
 	red = Math.round(Math.random() * 255);
@@ -39,6 +41,16 @@ function initVars() {
 	setTime(startMinutes,startSeconds,startDecaSeconds);
 	startTimer();
 	console.log("Initialized variables");
+}
+
+function endGame() {
+	// 50% accuracy and 50% speed
+	var totalPossiblDecaSeconds = (startMinutes * 60 * 100 + startSeconds * 100 + startDecaSeconds) * totalRounds;
+	finalScore = Math.round(totalPercent / 2.0 + ((totalPossiblDecaSeconds - (totalMinutes * 60 * 100 + totalSeconds * 100.0 + totalDecaSeconds)) / totalPossiblDecaSeconds) * 50.0);
+	$(".finalScore").html(finalScore + " / " + totalPossibleSocre);
+	console.log("finalScore: " + finalScore);
+	stopTime();
+	window.location.href = "#finalPage";
 }
 
 function pickColor() {
@@ -97,8 +109,9 @@ function pickColor() {
 	
 	round++;
 
-	if(round >= 3) {
+	if(round >= totalRounds) {
 		// Game Over, show final screen
+		endGame();
 	}
 }
 
