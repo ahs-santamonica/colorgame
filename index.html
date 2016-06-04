@@ -23,11 +23,12 @@
 				<p id="canvas">
 					Lets do this!
 				</p>
-				<img src="Logo.png">
+				<img src="App Logo.jpg" style="width: 100%; height: 100%;">
 				<br>
 				<div class="text-centered">
 					<a class="ui-btn play-btn" href="#gamePage">Play</a>
 					<a class="ui-btn" id="help-btn" href="#tutorialPage">How to Play</a>
+					<a class="ui-btn mode-btn" href="#modePage">Game Modes</a>
 				</div>
 			</div>
 
@@ -71,7 +72,7 @@
 
 		<div data-role="main" class="ui-content">
 			<h1>
-				Round Score: <span id="round-score"></span>%
+				Round Score: <span id="round-score"></span>
 				<br>
 				Average Score: <span id="total-score"></span>
 			</h1>
@@ -287,6 +288,21 @@
 			</div>
 		</div>
 	</div>
+	
+	<div data-role="page" id="modePage">
+			<div data-role="header">
+				<h1>Game Modes</h1>
+			</div>
+
+			<div data-role="main" class="ui-content">
+				<div class="text-centered">
+					<a class="ui-btn" href="">Speed Mode</a>
+					<a class="ui-btn" href="">Accuracy Mode</a>
+					<a class="ui-btn" href="">Endless</a>
+					<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
+				</div>
+			</div>
+		</div>
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
