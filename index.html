@@ -22,10 +22,12 @@
 				<h1>Ready to Play?</h1>
 				<p id="canvas">
 					Here are the rules:
-				</p>
+					Color Rush is a game based around who is the best at recognizing colors.
+					It is recommended for people who are not colorblind, but we encourage anyone to try this game out. If you happen to be colorblind, think of yourself as playing this game on Hard Mode!To start, there are three primary colors:  <span style="color: red">red</span>, <span style="color: green">green</span>, and  <span style="color: blue">blue</span>
+ 			</p>
 				<br>
 				<div class="text-centered">
-					<a class="textbox-outline" id="play-btn" href="#pageTwo">Play</a>
+					<a class="ui-btn play-btn" href="#gamePage">Play</a>
 				</div>
 				
 			</div>
@@ -35,7 +37,7 @@
 			</div>
 		</div>
 
-		<div data-role="page" id="pageTwo">
+		<div data-role="page" id="gamePage">
 			<div data-role="header">
 				<h1>Color Game</h1>
 			</div>
@@ -43,16 +45,58 @@
 			<div data-role="main" class="ui-content">
 				<h1>Find The Color!</h1>
 				<p id="canvas">
-					<div class="color-rect">
-
-					</div>
-
-					<input type="range" name="points" id="points" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
-					<input type="range" name="points" id="points" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
-					<input type="range" name="points" id="points" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+					<div class="color-rect"></div>
+					<div class="color-rect-usr"></div>
+					<br>
+					Red:
+					<input type="range" name="points" id="red-val" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+					Green:
+					<input type="range" name="points" id="green-val" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+					Blue:
+					<input type="range" name="points" id="blue-val" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
 				</p>
 				<br>
-				<a class="textbox-outline" id="play-btn">Play</a>
+				<a class="ui-btn" id="pick-btn" href="#nextPage">Pick Color!</a>
+			</div>
+
+			<div data-role="footer">
+				<h1>Color Game</h1>
+			</div>
+		</div>
+
+		<div data-role="page" id="nextPage">
+			<div data-role="header">
+				<h1>Color Game</h1>
+			</div>
+
+			<div data-role="main" class="ui-content">
+				<h1>Here is your score:</h1>
+				<p id="canvas">
+					Round Score: <span id="round-score"></span>
+					<br>
+					Total Score: <span id="total-score"></span>
+				</p>
+				<div class="color-rect">
+					<p class="col-par">
+						Color Goal<br>
+						Red: <span class="red-col"></span><br>
+						Green: <span class="red-col"></span><br>
+						Blue: <span class="red-col"></span>
+					</p>
+				</div>
+				<div class="color-rect-usr">
+					<p class="col-par-usr">
+						Your Color<br>
+						Red: <span class="red-col-usr"></span><br>
+						Green: <span class="red-col-usr"></span><br>
+						Blue: <span class="red-col-usr"></span>
+					</p>
+				</div>
+				<p>
+					Red Error: 
+				</p>
+				<br>
+				<a class="ui-btn play-btn" href="#gamePage">Continue</a>
 			</div>
 
 			<div data-role="footer">
@@ -67,14 +111,67 @@
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script>
 
-		var gameStarted = false;
+		var isPlaying = false;
+		var round = 0;
+		var red = 0;
+		var green = 0;
+		var blue = 0;
+		var totalScore = 0;
+		var tempScore = 0;
 
-		$("#play-btn").on("click", function() {
-			$("#canvas").html("Hello, this works!");
-			gameStarted = true;
+		function randomizeColor() {
+			red = Math.round(Math.random() * 255);
+			green = Math.round(Math.random() * 255);
+			blue = Math.round(Math.random() * 255);
+			$(".color-rect").css("background-color", "rgba("+red+","+green+","+blue+",255)");
+			console.log("rgba("+red+","+green+","+blue+",255)");
+		}
+
+		$("#pick-btn").on("click", function() {
+			var usrRed = $("#red-val").val();
+			var usrGreen = $("#green-val").val();
+			var usrBlue = $("#blue-val").val();
+
+			tempScore = 0;
+			tempScore += Math.abs(usrRed - red) - Math.abs(usrGreen - green) - Math.abs(usrBlue - blue);
+
+			totalScore += tempScore;
+
+			$("#round-score").html(tempScore);
+			$("#total-score").html(totalScore);
+
+			$(".red-col").html(red);
+			$(".red-col").html(green);
+			$(".red-col").html(blue);
+			$(".red-col-usr").html(usrRed);
+			$(".red-col-usr").html(usrGreen);
+			$(".red-col-usr").html(usrBlue);
+
+			$(".col-par").css("color", "rgba("+(255-red)+","+(255-green)+","+(255-blue)+")");
+			$(".col-par-usr").css("color", "rgba("+(255-usrRed)+","+(255-usrGreen)+","+(255-usrBlue)+")");
+
+			round++;
+
+			if(round >= 3) {
+				// Game Over, show final screen
+			}
 		});
 
-		$()
+		$(".play-btn").on("click", function() {
+			var isPlaying = true;
+			randomizeColor();
+		});
+
+		$(document).on("change", "input", function() {
+			var usrRed = $("#red-val").val();
+			var usrGreen = $("#green-val").val();
+			var usrBlue = $("#blue-val").val();
+			$(".color-rect-usr").css("background-color", "rgba("+usrRed+","+usrGreen+","+usrBlue+",255)");
+			console.log("color-changed");
+		});
+
+		$(window).on("load", randomizeColor());
+
 	</script>
 </body>
 </html>
