@@ -36,8 +36,8 @@ $("#pick-btn").on("click", function() {
 	counter++;
 	totalPercent = total/counter;
 
-	$("#round-score").html(correct);
-	$("#total-score").html(totalPercent);
+	$("#round-score").html(correct + "%");
+	$("#total-score").html(totalPercent + "%");
 
 	$(".red-col").html(red);
 	$(".green-col").html(green);
