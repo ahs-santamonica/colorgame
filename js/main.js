@@ -59,6 +59,8 @@ function endGame() {
 	console.log("finalScore: " + finalScore);
 	stopTime();
 	window.location.href = "#finalPage";
+	$("#score-box-hidden").val(finalScore);
+	initVars();
 }
 
 function pickColor() {

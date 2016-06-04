@@ -114,9 +114,15 @@
 			<h1>You are done! Your Final Score Is:</h1>
 			<p id="canvas">
 				<span class="finalScore"></span>
+				Submit your score:
+				<form action="highscore_submit.php" method="post" accept-charset="utf-8">
+					<input type="text" name="name" placeholder="Name">
+					<input id="score-box-hidden" type="hidden" name="score" value="0">
+					<input type="submit" class="ui-btn continue-btn" href="#homePage">Submit</a>
+				</form>
 			</p>
 			<br>
-			<a class="ui-btn continue-btn" href="#homePage">End Game</a>
+			
 		</div>
 
 		<div data-role="footer">
