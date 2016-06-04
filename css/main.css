@@ -1,4 +1,4 @@
-.color-rect, .color-rect-usr, .color-rect-usr2, .color-rect-usr3 {
+.color-rect, .color-rect-usr, .color-rect-usr2, .color-rect-usr3,  .color-rect-usronce{
 	width: 10em;
 	height: 10em;
 	border-color: #000;

@@ -297,12 +297,71 @@
 			<div data-role="main" class="ui-content">
 				<div class="text-centered">
 					<a class="ui-btn" href="">Speed Mode</a>
-					<a class="ui-btn" href="">Accuracy Mode</a>
+					<a class="ui-btn" id = "accuracy-btn" href="#accuracyPage">Accuracy Mode</a>
 					<a class="ui-btn" href="">Endless</a>
 					<a class="ui-btn" id="quit-btn" href = "#homePage">Return</a>
 				</div>
 			</div>
 		</div>
+		
+	<div data-role="page" id="accuracyPage">
+			<div data-role="header">
+				<h1>Accuracy Mode</h1>
+			</div>
+			<p id="canvas">
+				<div class="color-rect"></div>
+				<div class="color-rect-usronce"></div>
+				<br>
+				Red:
+				<input type="range" name="points" id="red-valonce" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+				Green:
+				<input type="range" name="points" id="green-valonce" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+				Blue:
+				<input type="range" name="points" id="blue-valonce" value="50" min="0" max="255" data-highlight="true" data-popup-enabled="true">
+			</p>
+			<a class="ui-btn" id="pick-btn" href="#nextAccuracyPage">Pick Color!</a>
+			<a class="ui-btn" id="reset-btn" href="#accuracyPage">Reset</a>
+			<a class="ui-btn" id="quit-btn" href = "#homePage">Quit</a>
+		</div>
+		
+	<div data-role="page" id="nextAccuracyPage">
+		<div data-role="header">
+			<h1>Accuracy Mode</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<h1>
+				Round Score: <span id="round-scoreonce"></span>
+				<br>
+				Average Score: <span id="total-scoreonce"></span>
+			</h1>
+				
+			</p>
+			<div class="color-rect">
+				<p class="col-par">
+					<h4>Color Goal</h4>
+					Red: <span class="red-col"></span><br>
+					Green: <span class="green-col"></span><br>
+					Blue: <span class="blue-col"></span>
+				</p>
+			</div>
+			<div class="color-rect-usr">
+				<p class="col-par-usronce">
+					<h4>Your Color</h4>
+					Red: <span class="red-col-usronce"></span><br>
+					Green: <span class="green-col-usronce"></span><br>
+					Blue: <span class="blue-col-usronce"></span>
+				</p>
+			</div>
+			<br>
+			<a class="ui-btn play-btn" href="#gamePage">Continue</a>
+			<a class="ui-btn" id="quit-btn" href = "#homePage">Quit</a>
+		</div>
+
+		<div data-role="footer">
+			<h1>Color Game</h1>
+		</div>
+	</div>
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>

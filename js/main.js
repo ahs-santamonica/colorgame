@@ -8,6 +8,15 @@ var total = 0;
 var counter = 0;
 var incorrect = 0;
 var correct = 0;
+var redonce = 0;
+var greenonce = 0;
+var blueonce = 0;
+var totalPercentonce = 0;
+var totalonce = 0;
+var counteronce = 0;
+var incorrectonce = 0;
+var correctonce = 0;
+
 
 function randomizeColor() {
 	red = Math.round(Math.random() * 255);
@@ -21,7 +30,6 @@ $("#pick-btn").on("click", function() {
 	var usrRed = $("#red-val").val();
 	var usrGreen = $("#green-val").val();
 	var usrBlue = $("#blue-val").val();
-
 	incorrect = 0;
 	incorrect = ((((Math.abs(usrRed - red))/255)*100) + (((Math.abs(usrGreen - green))/255)*100) + (((Math.abs(usrBlue - blue))/255)*100));
 	correct = Math.round((300-incorrect)/3);
@@ -32,6 +40,18 @@ $("#pick-btn").on("click", function() {
 	$("#round-score").html(correct + "%");
 	$("#total-score").html(totalPercent + "%");
 
+	var usrRedonce = $("#red-valonce").val();
+	var usrGreenonce = $("#green-valonce").val();
+	var usrBlueonce = $("#blue-valonce").val();
+	incorrectonce = 0;
+	incorrectonce = ((((Math.abs(usrRedonce - red))/255)*100) + (((Math.abs(usrGreenonce - green))/255)*100) + (((Math.abs(usrBlueonce - blue))/255)*100));
+	correctonce = Math.round((300-incorrectonce)/3);
+	totalonce += correctonce;
+	counter++;
+	totalPercentonce = Math.round(totalonce/counteronce);
+
+	$("#round-score").html(correct + "%");
+	$("#total-score").html(totalPercent + "%");
 	$(".red-col").html(red);
 	$(".green-col").html(green);
 	$(".blue-col").html(blue);
@@ -54,6 +74,14 @@ $(".play-btn").on("click", function() {
 	randomizeColor();
 });
 
+$("#reset-btn").on("click", function() {
+	$("#red-valonce" ).prop( "disabled", false );
+	$("#green-valonce" ).prop( "disabled", false );
+	$("#blue-valonce" ).prop( "disabled", false );
+	randomizeColor();
+	console.log("reset");
+});
+
 $(document).on("change", "input", function() {
 	var usrRed = $("#red-val").val();
 	var usrGreen = $("#green-val").val();
@@ -67,6 +95,13 @@ $(document).on("change", "input", function() {
 	var usrGreen3 = $("#green-val3").val();
 	var usrBlue3 = $("#blue-val3").val();
 	$(".color-rect-usr3").css("background-color", "rgba("+usrRed3+","+usrGreen3+","+usrBlue3+",255)");
+	var usrRedonce = $("#red-valonce").val();
+	$("#red-valonce" ).prop( "disabled", true );
+	var usrGreenonce = $("#green-valonce").val();
+	$("#green-valonce" ).prop( "disabled", true );
+	var usrBlueonce = $("#blue-valonce").val();
+	$("#blue-valonce" ).prop( "disabled", true );
+	$(".color-rect-usronce").css("background-color", "rgba("+usrRedonce+","+usrGreenonce+","+usrBlueonce+",255)");
 	console.log("color-changed");
 });
 
