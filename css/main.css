@@ -1,0 +1,18 @@
+body {
+	font-size: 4.5em;
+	background-color: #000;
+	color: #fff;
+}
+
+.textbox-outline {
+	border-color: #fff;
+	border-width: 0.15em;
+	border-style: solid;
+	padding: 0.2em;
+	color: #fff;
+}
+
+.text-centered {
+
+	text-align: center;
+}
