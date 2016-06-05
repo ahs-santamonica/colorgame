@@ -203,9 +203,9 @@ $(".keepgoing-btn").on("click", function() {
 });
 
 $(".reset-btn").on("click", function() {
-	$("#red-valonce" ).slider( 'enable');
-	$("#green-valonce" ).slider( 'enable');
-	$("#blue-valonce" ).slider( 'enable' );
+	$("#red-valonce" ).slider( { disabled: false });
+	$("#green-valonce" ).slider( { disabled: false });
+	$("#blue-valonce" ).slider( { disabled: false } );
 	randomizeColor();
 	console.log("reset");
 });
@@ -226,6 +226,12 @@ $("#blind-btn").on("click", function() {
 $(".blindkeep-btn").on("click", function() {
 	initVars();
 	randomizeColor();
+});
+
+$("#accuracy-btn").on("click", function() {
+	$("#red-valonce" ).slider( { disabled: false });
+	$("#green-valonce" ).slider( { disabled: false });
+	$("#blue-valonce" ).slider( { disabled: false } );
 });
 
 $(document).on("change", "input", function() {
