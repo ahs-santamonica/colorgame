@@ -60,7 +60,7 @@ $result = $dbc->query($sql);
 				</table>
 			</p>
 			<div class="text-centered">
-				<a class="ui-btn play-btn" href="/">Quit</a>
+				<a class="ui-btn play-btn" href="index.html">Quit</a>
 			</div>
 		</div>
 
