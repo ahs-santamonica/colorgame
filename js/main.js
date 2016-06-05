@@ -246,11 +246,8 @@ $(document).on("change", "input", function() {
 	var usrBlue3 = $("#blue-val3").val();
 	$(".color-rect-usr3").css("background-color", "rgba("+usrRed3+","+usrGreen3+","+usrBlue3+",255)");
 	var usrRedonce = $("#red-valonce").val();
-	$("#red-valonce" ).prop( "disabled", true);
 	var usrGreenonce = $("#green-valonce").val();
-	$("#green-valonce" ).prop( "disabled", true);
 	var usrBlueonce = $("#blue-valonce").val();
-	$("#blue-valonce" ).prop( "disabled", true);
 	$(".color-rect-usronce").css("background-color", "rgba("+usrRedonce+","+usrGreenonce+","+usrBlueonce+",255)");
 	var usrRedend = $("#red-valend").val();
 	var usrGreenend = $("#green-valend").val();
@@ -261,6 +258,18 @@ $(document).on("change", "input", function() {
 	var usrBlueb= $("#blue-valb").val();
 	$(".color-rect-usrb").css("background-color", "rgba("+usrRedb+","+usrGreenb+","+usrBlueb+",255)");
 	console.log("color-changed");
+});
+
+$(document).on('pagecreate', function(){ 
+    $(document).on('slidestop', '#red-valonce', function(){ 
+        $("#red-valonce" ).slider( { disabled: true } );
+    });  
+    $(document).on('slidestop', '#green-valonce', function(){ 
+        $("#green-valonce" ).slider( { disabled: true } );
+    });   
+    $(document).on('slidestop', '#blue-valonce', function(){ 
+        $("#blue-valonce" ).slider( { disabled: true } );
+    });     
 });
 
 $(window).on("load", function() {
